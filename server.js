@@ -18,6 +18,10 @@ io.on("connection", (socket) => {
   socket.on("send-message", (data) => {
     io.emit("receive-message", data);
   });
+  // REACTIONS
+  socket.on("add-reaction", (data) => {
+    io.emit("reaction-updated", data);
+  });
 
   socket.on("disconnect", () => {
     console.log("User disconnected");

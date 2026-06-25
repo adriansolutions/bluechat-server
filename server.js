@@ -26,6 +26,17 @@ io.on("connection", (socket) => {
   socket.on("disconnect", () => {
     console.log("User disconnected");
   });
+  socket.on(
+  "typing",
+  (name) => {
+
+    socket.broadcast.emit(
+      "typing",
+      name
+    );
+
+  }
+);
 });
 
 app.get("/", (req, res) => {
